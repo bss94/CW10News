@@ -21,8 +21,11 @@ const fileDb = {
       };
     }
   },
-  async getItems(target:'news'|'comments') {
-      return data[target];
+  async getNews() {
+    return data.news;
+  },
+  async getComments() {
+    return data.comments;
   },
   async addNews(item: NewsWithoutId) {
     const id = crypto.randomUUID();
@@ -39,23 +42,23 @@ const fileDb = {
     return newItem;
   },
 
-  async removeItem(id:string,target:'news'|'comments') {
+  async removeItem(id: string, target: 'news' | 'comments') {
     let remove = false;
     if (target == 'comments') {
-    const index = data.comments.findIndex(el=>el.id === id);
-    if (index > -1) {
-      data.comments.splice(index, 1);
-      remove = true;
-    }
-    }else {
-      const index = data.news.findIndex(el=>el.id === id);
+      const index = data.comments.findIndex(el => el.id === id);
+      if (index > -1) {
+        data.comments.splice(index, 1);
+        remove = true;
+      }
+    } else {
+      const index = data.news.findIndex(el => el.id === id);
       if (index > -1) {
         data.comments = data.comments.filter(el => el.newsId !== id);
         data.news.splice(index, 1);
         remove = true;
       }
     }
-    if(remove){
+    if (remove) {
       await this.save();
     }
     return remove;
