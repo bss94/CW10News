@@ -1,6 +1,14 @@
 import {IComment, IFullNews, INews} from '../../types.ts';
 import {createSlice} from '@reduxjs/toolkit';
-import {fetchNews, fetchOneNews} from './postThunks.ts';
+import {
+  createComment,
+  createNews,
+  deleteComment,
+  deleteNews,
+  fetchNews,
+  fetchNewsComments,
+  fetchOneNews
+} from './postThunks.ts';
 
 
 export interface PostState {
@@ -58,6 +66,53 @@ export const postsSlice = createSlice({
       .addCase(fetchOneNews.rejected, (state) => {
         state.fetchOneNews = false;
       });
+    builder.addCase(fetchNewsComments.pending, (state) => {
+      state.fetchingComments = true;
+    })
+      .addCase(fetchNewsComments.fulfilled, (state, {payload: comments}) => {
+        state.fetchingComments = false;
+        state.comments = comments;
+      })
+      .addCase(fetchNewsComments.rejected, (state) => {
+        state.fetchingComments = false;
+      });
+    builder.addCase(deleteComment.pending, (state,{ meta: { arg: commentId } }) => {
+      state.deleteComment = commentId;
+    })
+      .addCase(deleteComment.fulfilled, (state) => {
+        state.deleteComment = false;
+      })
+      .addCase(deleteComment.rejected, (state) => {
+        state.deleteComment = false;
+      });
+    builder.addCase(deleteNews.pending, (state,{ meta: { arg: newsId } }) => {
+      state.deleteNews = newsId;
+    })
+      .addCase(deleteNews.fulfilled, (state) => {
+        state.deleteNews = false;
+      })
+      .addCase(deleteNews.rejected, (state) => {
+        state.deleteNews = false;
+      });
+    builder.addCase(createComment.pending, (state) => {
+      state.createComment = true;
+    })
+      .addCase(createComment.fulfilled, (state) => {
+        state.createComment = false;
+      })
+      .addCase(createComment.rejected, (state) => {
+        state.createComment = false;
+      });
+    builder.addCase(createNews.pending, (state) => {
+      state.createNews = true;
+    })
+      .addCase(createNews.fulfilled, (state) => {
+        state.createNews = false;
+      })
+      .addCase(createNews.rejected, (state) => {
+        state.createNews = false;
+      });
+
   },
   selectors: {
     selectNews: (state) => state.news,

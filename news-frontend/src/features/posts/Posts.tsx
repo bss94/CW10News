@@ -21,7 +21,6 @@ const Posts = () => {
         All posts
       </Typography>
       <Grid container spacing={2} direction="column">
-
         {fetching ?
           <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
             <CircularProgress sx={{m: 2, textAlign: 'center'}}/>

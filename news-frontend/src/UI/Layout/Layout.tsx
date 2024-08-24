@@ -8,7 +8,7 @@ const Layout:React.FC<PropsWithChildren> = ({children}) => {
       <header>
         <AppToolbar />
       </header>
-      <Container maxWidth="lg" component="main">
+      <Container maxWidth="md" component="main">
         {children}
       </Container>
     </>

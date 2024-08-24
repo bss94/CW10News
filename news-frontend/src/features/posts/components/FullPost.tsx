@@ -3,6 +3,7 @@ import {Card, CardContent, CardMedia, Grid, Typography} from '@mui/material';
 import imageNotFound from '../../../assets/images/image-not-found.png';
 import dayjs from 'dayjs';
 import {IFullNews} from '../../../types.ts';
+import {API_URL} from '../../../constants.ts';
 
 interface Props {
   news: IFullNews;
@@ -16,7 +17,7 @@ const FullPost: React.FC<Props> = ({news}) => {
           <CardMedia
             component="img"
             sx={{width: 300}}
-            image={news.image ? news.image : imageNotFound}
+            image={news.image ? `${API_URL}/${news.image}` : imageNotFound}
             alt="Live from space album cover"
           />
         </Grid>
