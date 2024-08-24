@@ -7,7 +7,12 @@ const newsRouter = express.Router();
 
 newsRouter.get('/', async (req, res) => {
   const news = await fileDb.getNews();
-  const resNews = news.map(el => ({id: el.id, title: el.title}));
+  const resNews = news.map(el => ({
+    id: el.id,
+    title: el.title,
+    image: el.image,
+    date: el.date,
+  }));
   return res.send(resNews);
 });
 
