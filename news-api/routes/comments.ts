@@ -7,9 +7,9 @@ const commentsRouter = express.Router();
 commentsRouter.get('/', async (req, res) => {
   const queryNewsId = req.query.news_id as string;
   const comments = await fileDb.getComments();
-  if(!queryNewsId){
+  if (!queryNewsId) {
     return res.send(comments);
-  }else{
+  } else {
     return res.send(comments.filter(comment => comment.newsId === queryNewsId));
   }
 });
@@ -20,12 +20,12 @@ commentsRouter.post('/', async (req, res) => {
   }
   const news = await fileDb.getNews();
   const resNews = news.find(el => el.id === req.body.newsId);
-  if(!resNews){
+  if (!resNews) {
     return res.status(404).send('News with current newsId not found!');
-  }else {
+  } else {
     const comment: CommentWithoutId = {
       newsId: req.body.newsId,
-      author: req.body.author ? req.body.author : "Anonymous",
+      author: req.body.author ? req.body.author : 'Anonymous',
       text: req.body.text,
 
     };
