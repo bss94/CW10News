@@ -12,7 +12,7 @@ const Posts = () => {
   const news = useAppSelector(selectNews);
 
   useEffect(() => {
-    dispatch(fetchNews())
+    dispatch(fetchNews());
   }, [dispatch]);
 
   return (
@@ -25,7 +25,7 @@ const Posts = () => {
           <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
             <CircularProgress sx={{m: 2, textAlign: 'center'}}/>
           </Box>
-          : news.map(el=>(
+          : news.map(el => (
             <PostItem title={el.title} image={el.image} date={el.date} id={el.id} key={el.id}/>
           ))}
       </Grid>

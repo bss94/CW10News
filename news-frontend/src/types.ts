@@ -5,9 +5,10 @@ export interface IFullNews {
   image: string | null;
   date: string;
 }
+
 export type INews = Omit<IFullNews, 'text'>;
 
-export interface NewsMutation{
+export interface NewsMutation {
   title: string;
   text: string;
   image: File | null;
@@ -21,7 +22,7 @@ export interface IComment {
 }
 
 export interface CommentMutation {
-  newsId:string;
+  newsId: string;
   author: string;
   text: string;
 }

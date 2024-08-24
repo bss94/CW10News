@@ -5,6 +5,7 @@ import {selectDeleteComments} from '../postsSlice.ts';
 import {deleteComment, fetchNewsComments} from '../postThunks.ts';
 import {LoadingButton} from '@mui/lab';
 import DeleteIcon from '@mui/icons-material/Delete';
+import {toast} from 'react-toastify';
 
 interface Props {
   author: string;
@@ -18,8 +19,14 @@ const CommentItem: React.FC<Props> = ({newsId, author, text, id}) => {
   const fetching = useAppSelector(selectDeleteComments);
 
   const removeComment = async (id: string) => {
-    await dispatch(deleteComment(id));
-    await dispatch(fetchNewsComments(newsId));
+    try {
+      await dispatch(deleteComment(id));
+      await dispatch(fetchNewsComments(newsId));
+      toast.success('delete comment successfully.');
+    } catch (e) {
+      toast.error('error cant delete comment');
+    }
+
   };
 
   return (

@@ -9,7 +9,7 @@ const NewPost = () => {
         Add new post
       </Typography>
 
-    <PostForm/>
+      <PostForm/>
 
     </Grid>
 

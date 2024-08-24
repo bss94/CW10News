@@ -7,6 +7,7 @@ import {LoadingButton} from '@mui/lab';
 import FileInput from '../../../UI/FileInput/FileInput.tsx';
 import {selectCreateNews} from '../postsSlice.ts';
 import {createNews} from '../postThunks.ts';
+import {toast} from 'react-toastify';
 
 const PostForm = () => {
   const navigate = useNavigate();
@@ -19,8 +20,13 @@ const PostForm = () => {
   });
   const submitFormHandler = async (event: React.FormEvent) => {
     event.preventDefault();
-    await dispatch(createNews({...state}))
-    navigate('/')
+    try {
+      await dispatch(createNews({...state}));
+      navigate('/');
+      toast.success('News successfully created!');
+    } catch (e) {
+      toast.error('Error creating news');
+    }
   };
 
   const inputChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {

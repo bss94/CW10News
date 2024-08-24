@@ -9,6 +9,7 @@ import {selectDeleteNews} from '../postsSlice.ts';
 import DeleteIcon from '@mui/icons-material/Delete';
 import {LoadingButton} from '@mui/lab';
 import {API_URL} from '../../../constants.ts';
+import {toast} from 'react-toastify';
 
 interface Props {
   id: string;
@@ -37,8 +38,13 @@ const PostItem: React.FC<Props> = ({
   };
 
   const removeNews = async (id: string) => {
-    await dispatch(deleteNews(id));
-    await dispatch(fetchNews());
+    try {
+      await dispatch(deleteNews(id));
+      await dispatch(fetchNews());
+      toast.success('delete news successfully.');
+    } catch (e) {
+      toast.error('error cant delete news');
+    }
   };
 
   return (

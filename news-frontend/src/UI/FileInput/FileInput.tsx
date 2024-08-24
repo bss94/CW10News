@@ -44,7 +44,7 @@ const FileInput: React.FC<Props> = ({onChange, name, label}) => {
                      onClick={activateInput}/>
         </Grid>
         <Grid item>
-          <Button variant="outlined" onClick={activateInput} sx={{height: '55px'}} >
+          <Button variant="outlined" onClick={activateInput} sx={{height: '55px'}}>
             <SearchIcon/>
           </Button>
         </Grid>

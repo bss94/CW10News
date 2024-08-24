@@ -5,56 +5,56 @@ import axiosApi from '../../axiosApi.ts';
 
 export const fetchNews = createAsyncThunk<INews[]>(
   'posts/fetchNews',
-  async ()=>{
+  async () => {
     const {data: posts} = await axiosApi.get<INews[]>('/news');
     return posts;
   }
 );
-export const fetchOneNews = createAsyncThunk<IFullNews,string>(
+export const fetchOneNews = createAsyncThunk<IFullNews, string>(
   'posts/fetchOneNews',
-  async (id)=>{
+  async (id) => {
     const {data: post} = await axiosApi.get<IFullNews>(`/news/${id}`);
     return post;
   }
 );
-export const fetchNewsComments = createAsyncThunk<IComment[],string>(
+export const fetchNewsComments = createAsyncThunk<IComment[], string>(
   'posts/fetchNewsComments',
-  async (newsId)=>{
+  async (newsId) => {
     const {data: comments} = await axiosApi.get<IComment[]>(`/comments?news_id=${newsId}`);
     return comments;
   }
 );
 
-export const deleteComment = createAsyncThunk<void,string>(
+export const deleteComment = createAsyncThunk<void, string>(
   'posts/deleteComment',
-  async (id)=>{
+  async (id) => {
     await axiosApi.delete(`/comments/${id}`);
   }
-)
+);
 
-export const deleteNews = createAsyncThunk<void,string>(
+export const deleteNews = createAsyncThunk<void, string>(
   'posts/deleteNews',
-  async (id)=>{
+  async (id) => {
     await axiosApi.delete(`/news/${id}`);
   }
-)
+);
 
-export const createComment = createAsyncThunk<void,CommentMutation>(
+export const createComment = createAsyncThunk<void, CommentMutation>(
   'posts/createComment',
-  async (comment)=>{
-    await axiosApi.post('/comments',comment);
+  async (comment) => {
+    await axiosApi.post('/comments', comment);
   }
-)
+);
 
-export const createNews = createAsyncThunk<void,NewsMutation>(
+export const createNews = createAsyncThunk<void, NewsMutation>(
   'posts/createNews',
-  async (news)=>{
+  async (news) => {
     const formData = new FormData();
     formData.append('title', news.title);
     formData.append('text', news.text);
-    if(news.image){
+    if (news.image) {
       formData.append('image', news.image);
     }
-    await axiosApi.post('/news',formData)
+    await axiosApi.post('/news', formData);
   }
-)
+);

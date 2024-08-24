@@ -76,7 +76,7 @@ export const postsSlice = createSlice({
       .addCase(fetchNewsComments.rejected, (state) => {
         state.fetchingComments = false;
       });
-    builder.addCase(deleteComment.pending, (state,{ meta: { arg: commentId } }) => {
+    builder.addCase(deleteComment.pending, (state, {meta: {arg: commentId}}) => {
       state.deleteComment = commentId;
     })
       .addCase(deleteComment.fulfilled, (state) => {
@@ -85,7 +85,7 @@ export const postsSlice = createSlice({
       .addCase(deleteComment.rejected, (state) => {
         state.deleteComment = false;
       });
-    builder.addCase(deleteNews.pending, (state,{ meta: { arg: newsId } }) => {
+    builder.addCase(deleteNews.pending, (state, {meta: {arg: newsId}}) => {
       state.deleteNews = newsId;
     })
       .addCase(deleteNews.fulfilled, (state) => {

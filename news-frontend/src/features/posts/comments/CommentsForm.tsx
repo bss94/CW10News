@@ -5,6 +5,7 @@ import {CommentMutation} from '../../../types.ts';
 import {Grid, TextField} from '@mui/material';
 import {LoadingButton} from '@mui/lab';
 import {createComment, fetchNewsComments} from '../postThunks.ts';
+import {toast} from 'react-toastify';
 
 const initialState: CommentMutation = {
   author: '',
@@ -31,13 +32,18 @@ const CommentsForm = () => {
     event.preventDefault();
     console.log(newsId);
     if (newsId) {
-      const newComment: CommentMutation = {
-        ...state,
-        newsId: newsId
-      };
-      await dispatch(createComment(newComment));
-      await dispatch(fetchNewsComments(newsId));
-      setState(initialState);
+      try {
+        const newComment: CommentMutation = {
+          ...state,
+          newsId: newsId
+        };
+        await dispatch(createComment(newComment));
+        await dispatch(fetchNewsComments(newsId));
+        setState(initialState);
+        toast.success('Comment successfully created!');
+      } catch (e) {
+        toast.error('Error creating comment');
+      }
     }
   };
 

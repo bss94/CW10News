@@ -1,4 +1,57 @@
 {
-  "news": [],
-  "comments": []
+  "news": [
+    {
+      "id": "e6b2987c-d7e3-420a-a6a2-8c351e6de6c8",
+      "title": "Transitions",
+      "text": "Expand from the start edge of the child element. Use the orientation prop if you need a horizontal collapse. The collapsedSize prop can be used to set the minimum width/height when not expanded.",
+      "image": null,
+      "date": "2024-08-24T13:42:56.393Z"
+    },
+    {
+      "id": "9e372ee1-f0cb-4107-9ee5-936a82324b52",
+      "title": "Slide",
+      "text": "Slide in from the edge of the screen. The direction prop controls which edge of the screen the transition starts from.\r\n\r\nThe Transition component's mountOnEnter prop prevents the child component from being mounted until in is true. This prevents the relatively positioned component from scrolling into view from its off-screen position. Similarly, the unmountOnExit prop removes the component from the DOM after it has been transition off-screen.",
+      "image": null,
+      "date": "2024-08-24T13:43:24.889Z"
+    },
+    {
+      "id": "b80e3481-f9e9-4534-bb0e-d893d5a45818",
+      "title": "Introduction",
+      "text": "Cards are surfaces that display content and actions on a single topic. The Material UI Card component includes several complementary utility components to handle various use cases:\r\n\r\nCard: a surface-level container for grouping related components.\r\nCard Content: the wrapper for the Card content.\r\nCard Header: an optional wrapper for the Card header.\r\nCard Media: an optional container for displaying images, videos, etc.\r\nCard Actions: an optional wrapper that groups a set of buttons.\r\nCard Action Area: an optional wrapper that allows users to interact with the specified area of the Card.",
+      "image": null,
+      "date": "2024-08-24T13:44:27.419Z"
+    }
+  ],
+  "comments": [
+    {
+      "id": "3d9dde53-452e-419e-b670-5376148e5c50",
+      "newsId": "b80e3481-f9e9-4534-bb0e-d893d5a45818",
+      "author": "A-la Statham",
+      "text": "Cards are surfaces that display content and actions on a single topic. The Material UI Card component includes several complementary utility components to handle various use cases:\n"
+    },
+    {
+      "id": "0168b7b5-c7b9-4607-9951-29826b375c6d",
+      "newsId": "b80e3481-f9e9-4534-bb0e-d893d5a45818",
+      "author": "ancord",
+      "text": "Card Media: an optional container for displaying images, videos, etc.\nCard Actions: an optional wrapper that groups a set of buttons.\nCard Action Area: an optional wrapper that allows users to interact with the specified area of the Card."
+    },
+    {
+      "id": "7de0c1da-bf72-4a7a-8a9e-14966df1051f",
+      "newsId": "b80e3481-f9e9-4534-bb0e-d893d5a45818",
+      "author": "Anonymous",
+      "text": "Cards are surfaces that display content and actions on a single topic. The Material UI Card component includes several complementary utility components to handle various use cases:\n\nCard: a surface-level container for grouping related components.\nCard Content: the wrapper for the Card content.\n"
+    },
+    {
+      "id": "e588a2ad-3891-4aa3-8a10-c310933d5048",
+      "newsId": "e6b2987c-d7e3-420a-a6a2-8c351e6de6c8",
+      "author": "Anonymous",
+      "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    },
+    {
+      "id": "810aadf3-a7b3-4e7d-94b9-640f58406a2e",
+      "newsId": "e6b2987c-d7e3-420a-a6a2-8c351e6de6c8",
+      "author": "ssssssssssss",
+      "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    }
+  ]
 }
